@@ -4,7 +4,7 @@
 #
 Name     : perl-B-Hooks-EndOfScope
 Version  : 0.21
-Release  : 2
+Release  : 3
 URL      : http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.21.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.21.tar.gz
 Summary  : 'Execute code after a scope finished compilation'
@@ -34,6 +34,9 @@ doc components for the perl-B-Hooks-EndOfScope package.
 %setup -q -n B-Hooks-EndOfScope-0.21
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
@@ -47,7 +50,7 @@ fi
 export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 make TEST_VERBOSE=1 test
 
 %install
@@ -64,11 +67,11 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.24.0/B/Hooks/EndOfScope.pm
-/usr/lib/perl5/site_perl/5.24.0/B/Hooks/EndOfScope/PP.pm
-/usr/lib/perl5/site_perl/5.24.0/B/Hooks/EndOfScope/PP/FieldHash.pm
-/usr/lib/perl5/site_perl/5.24.0/B/Hooks/EndOfScope/PP/HintHash.pm
-/usr/lib/perl5/site_perl/5.24.0/B/Hooks/EndOfScope/XS.pm
+/usr/lib/perl5/site_perl/5.26.0/B/Hooks/EndOfScope.pm
+/usr/lib/perl5/site_perl/5.26.0/B/Hooks/EndOfScope/PP.pm
+/usr/lib/perl5/site_perl/5.26.0/B/Hooks/EndOfScope/PP/FieldHash.pm
+/usr/lib/perl5/site_perl/5.26.0/B/Hooks/EndOfScope/PP/HintHash.pm
+/usr/lib/perl5/site_perl/5.26.0/B/Hooks/EndOfScope/XS.pm
 
 %files doc
 %defattr(-,root,root,-)
