@@ -4,13 +4,13 @@
 #
 Name     : perl-B-Hooks-EndOfScope
 Version  : 0.24
-Release  : 7
+Release  : 8
 URL      : http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.24.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.24.tar.gz
 Summary  : 'Execute code after a scope finished compilation'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
-Requires: perl-B-Hooks-EndOfScope-doc
+Requires: perl-B-Hooks-EndOfScope-man
 BuildRequires : perl(Module::Implementation)
 BuildRequires : perl(Module::Runtime)
 BuildRequires : perl(Sub::Exporter::Progressive)
@@ -25,9 +25,18 @@ Execute code after a scope finished compilation
 %package doc
 Summary: doc components for the perl-B-Hooks-EndOfScope package.
 Group: Documentation
+Requires: perl-B-Hooks-EndOfScope-man
 
 %description doc
 doc components for the perl-B-Hooks-EndOfScope package.
+
+
+%package man
+Summary: man components for the perl-B-Hooks-EndOfScope package.
+Group: Default
+
+%description man
+man components for the perl-B-Hooks-EndOfScope package.
 
 
 %prep
@@ -55,6 +64,8 @@ make TEST_VERBOSE=1 test
 
 %install
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/perl-B-Hooks-EndOfScope
+cp LICENCE %{buildroot}/usr/share/doc/perl-B-Hooks-EndOfScope/LICENCE
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot}
 else
@@ -74,5 +85,11 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 /usr/lib/perl5/site_perl/5.26.1/B/Hooks/EndOfScope/XS.pm
 
 %files doc
+%defattr(0644,root,root,0755)
+%doc /usr/share/doc/perl\-B\-Hooks\-EndOfScope/*
+
+%files man
 %defattr(-,root,root,-)
-%doc /usr/share/man/man3/*
+/usr/share/man/man3/B::Hooks::EndOfScope.3
+/usr/share/man/man3/B::Hooks::EndOfScope::PP.3
+/usr/share/man/man3/B::Hooks::EndOfScope::XS.3
