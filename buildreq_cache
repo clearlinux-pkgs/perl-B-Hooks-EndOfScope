@@ -1,0 +1,6 @@
+0.24
+perl(Module::Implementation)
+perl(Module::Runtime)
+perl(Sub::Exporter::Progressive)
+perl(Try::Tiny)
+perl(Variable::Magic)

@@ -4,13 +4,14 @@
 #
 Name     : perl-B-Hooks-EndOfScope
 Version  : 0.24
-Release  : 10
+Release  : 11
 URL      : http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.24.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.24.tar.gz
 Summary  : 'Execute code after a scope finished compilation'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
-Requires: perl-B-Hooks-EndOfScope-man
+Requires: perl-B-Hooks-EndOfScope-data = %{version}-%{release}
+BuildRequires : buildreq-cpan
 BuildRequires : perl(Module::Implementation)
 BuildRequires : perl(Module::Runtime)
 BuildRequires : perl(Sub::Exporter::Progressive)
@@ -22,21 +23,22 @@ This archive contains the distribution B-Hooks-EndOfScope,
 version 0.24:
 Execute code after a scope finished compilation
 
-%package doc
-Summary: doc components for the perl-B-Hooks-EndOfScope package.
-Group: Documentation
-Requires: perl-B-Hooks-EndOfScope-man
+%package data
+Summary: data components for the perl-B-Hooks-EndOfScope package.
+Group: Data
 
-%description doc
-doc components for the perl-B-Hooks-EndOfScope package.
+%description data
+data components for the perl-B-Hooks-EndOfScope package.
 
 
-%package man
-Summary: man components for the perl-B-Hooks-EndOfScope package.
-Group: Default
+%package dev
+Summary: dev components for the perl-B-Hooks-EndOfScope package.
+Group: Development
+Requires: perl-B-Hooks-EndOfScope-data = %{version}-%{release}
+Provides: perl-B-Hooks-EndOfScope-devel = %{version}-%{release}
 
-%description man
-man components for the perl-B-Hooks-EndOfScope package.
+%description dev
+dev components for the perl-B-Hooks-EndOfScope package.
 
 
 %prep
@@ -64,12 +66,12 @@ make TEST_VERBOSE=1 test
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/perl-B-Hooks-EndOfScope
-cp LICENCE %{buildroot}/usr/share/doc/perl-B-Hooks-EndOfScope/LICENCE
+mkdir -p %{buildroot}/usr/share/package-licenses/perl-B-Hooks-EndOfScope
+cp LICENCE %{buildroot}/usr/share/package-licenses/perl-B-Hooks-EndOfScope/LICENCE
 if test -f Makefile.PL; then
-make pure_install PERL_INSTALL_ROOT=%{buildroot}
+make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
-./Build install --installdirs=site --destdir=%{buildroot}
+./Build install --installdirs=vendor --destdir=%{buildroot}
 fi
 find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
@@ -78,17 +80,17 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/B/Hooks/EndOfScope.pm
-/usr/lib/perl5/site_perl/5.26.1/B/Hooks/EndOfScope/PP.pm
-/usr/lib/perl5/site_perl/5.26.1/B/Hooks/EndOfScope/PP/FieldHash.pm
-/usr/lib/perl5/site_perl/5.26.1/B/Hooks/EndOfScope/PP/HintHash.pm
-/usr/lib/perl5/site_perl/5.26.1/B/Hooks/EndOfScope/XS.pm
+/usr/lib/perl5/vendor_perl/5.26.1/B/Hooks/EndOfScope.pm
+/usr/lib/perl5/vendor_perl/5.26.1/B/Hooks/EndOfScope/PP.pm
+/usr/lib/perl5/vendor_perl/5.26.1/B/Hooks/EndOfScope/PP/FieldHash.pm
+/usr/lib/perl5/vendor_perl/5.26.1/B/Hooks/EndOfScope/PP/HintHash.pm
+/usr/lib/perl5/vendor_perl/5.26.1/B/Hooks/EndOfScope/XS.pm
 
-%files doc
-%defattr(0644,root,root,0755)
-%doc /usr/share/doc/perl\-B\-Hooks\-EndOfScope/*
+%files data
+%defattr(-,root,root,-)
+/usr/share/package-licenses/perl-B-Hooks-EndOfScope/LICENCE
 
-%files man
+%files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/B::Hooks::EndOfScope.3
 /usr/share/man/man3/B::Hooks::EndOfScope::PP.3
