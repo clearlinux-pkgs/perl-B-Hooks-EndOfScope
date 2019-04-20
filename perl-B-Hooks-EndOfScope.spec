@@ -80,11 +80,11 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.1/B/Hooks/EndOfScope.pm
-/usr/lib/perl5/vendor_perl/5.28.1/B/Hooks/EndOfScope/PP.pm
-/usr/lib/perl5/vendor_perl/5.28.1/B/Hooks/EndOfScope/PP/FieldHash.pm
-/usr/lib/perl5/vendor_perl/5.28.1/B/Hooks/EndOfScope/PP/HintHash.pm
-/usr/lib/perl5/vendor_perl/5.28.1/B/Hooks/EndOfScope/XS.pm
+/usr/lib/perl5/vendor_perl/5.28.2/B/Hooks/EndOfScope.pm
+/usr/lib/perl5/vendor_perl/5.28.2/B/Hooks/EndOfScope/PP.pm
+/usr/lib/perl5/vendor_perl/5.28.2/B/Hooks/EndOfScope/PP/FieldHash.pm
+/usr/lib/perl5/vendor_perl/5.28.2/B/Hooks/EndOfScope/PP/HintHash.pm
+/usr/lib/perl5/vendor_perl/5.28.2/B/Hooks/EndOfScope/XS.pm
 
 %files data
 %defattr(-,root,root,-)
