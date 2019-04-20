@@ -4,13 +4,13 @@
 #
 Name     : perl-B-Hooks-EndOfScope
 Version  : 0.24
-Release  : 19
+Release  : 20
 URL      : http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.24.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.24.tar.gz
-Summary  : 'Execute code after a scope finished compilation'
+Summary  : Execute code after a scope finished compilation
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
-Requires: perl-B-Hooks-EndOfScope-data = %{version}-%{release}
+Requires: perl-B-Hooks-EndOfScope-license = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Module::Implementation)
 BuildRequires : perl(Module::Runtime)
@@ -23,22 +23,22 @@ This archive contains the distribution B-Hooks-EndOfScope,
 version 0.24:
 Execute code after a scope finished compilation
 
-%package data
-Summary: data components for the perl-B-Hooks-EndOfScope package.
-Group: Data
-
-%description data
-data components for the perl-B-Hooks-EndOfScope package.
-
-
 %package dev
 Summary: dev components for the perl-B-Hooks-EndOfScope package.
 Group: Development
-Requires: perl-B-Hooks-EndOfScope-data = %{version}-%{release}
 Provides: perl-B-Hooks-EndOfScope-devel = %{version}-%{release}
+Requires: perl-B-Hooks-EndOfScope = %{version}-%{release}
 
 %description dev
 dev components for the perl-B-Hooks-EndOfScope package.
+
+
+%package license
+Summary: license components for the perl-B-Hooks-EndOfScope package.
+Group: Default
+
+%description license
+license components for the perl-B-Hooks-EndOfScope package.
 
 
 %prep
@@ -86,12 +86,12 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 /usr/lib/perl5/vendor_perl/5.28.2/B/Hooks/EndOfScope/PP/HintHash.pm
 /usr/lib/perl5/vendor_perl/5.28.2/B/Hooks/EndOfScope/XS.pm
 
-%files data
-%defattr(-,root,root,-)
-/usr/share/package-licenses/perl-B-Hooks-EndOfScope/LICENCE
-
 %files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/B::Hooks::EndOfScope.3
 /usr/share/man/man3/B::Hooks::EndOfScope::PP.3
 /usr/share/man/man3/B::Hooks::EndOfScope::XS.3
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-B-Hooks-EndOfScope/LICENCE
