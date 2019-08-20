@@ -4,13 +4,15 @@
 #
 Name     : perl-B-Hooks-EndOfScope
 Version  : 0.24
-Release  : 20
+Release  : 21
 URL      : http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.24.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.24.tar.gz
-Summary  : Execute code after a scope finished compilation
+Summary  : 'Execute code after a scope finished compilation'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-B-Hooks-EndOfScope-license = %{version}-%{release}
+Requires: perl(Module::Implementation)
+Requires: perl(Variable::Magic)
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Module::Implementation)
 BuildRequires : perl(Module::Runtime)
@@ -48,7 +50,7 @@ license components for the perl-B-Hooks-EndOfScope package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -58,7 +60,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
