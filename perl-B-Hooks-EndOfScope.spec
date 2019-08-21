@@ -4,7 +4,7 @@
 #
 Name     : perl-B-Hooks-EndOfScope
 Version  : 0.24
-Release  : 22
+Release  : 23
 URL      : http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.24.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.24.tar.gz
 Summary  : 'Execute code after a scope finished compilation'
@@ -12,7 +12,6 @@ Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-B-Hooks-EndOfScope-license = %{version}-%{release}
 Requires: perl(Module::Implementation)
-Requires: perl(Module::Runtime)
 Requires: perl(Sub::Exporter::Progressive)
 Requires: perl(Variable::Magic)
 BuildRequires : buildreq-cpan
