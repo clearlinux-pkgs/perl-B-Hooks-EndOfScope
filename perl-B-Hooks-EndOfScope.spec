@@ -4,7 +4,7 @@
 #
 Name     : perl-B-Hooks-EndOfScope
 Version  : 0.26
-Release  : 34
+Release  : 35
 URL      : https://cpan.metacpan.org/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.26.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.26.tar.gz
 Summary  : 'Execute code after a scope finished compilation'
@@ -106,8 +106,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.34.0/B/Hooks/EndOfScope.pm
-/usr/lib/perl5/vendor_perl/5.34.0/B/Hooks/EndOfScope/PP.pm
-/usr/lib/perl5/vendor_perl/5.34.0/B/Hooks/EndOfScope/PP/FieldHash.pm
-/usr/lib/perl5/vendor_perl/5.34.0/B/Hooks/EndOfScope/PP/HintHash.pm
-/usr/lib/perl5/vendor_perl/5.34.0/B/Hooks/EndOfScope/XS.pm
+/usr/lib/perl5/*
