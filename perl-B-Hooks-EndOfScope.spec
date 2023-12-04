@@ -4,7 +4,7 @@
 #
 Name     : perl-B-Hooks-EndOfScope
 Version  : 0.26
-Release  : 37
+Release  : 38
 URL      : https://cpan.metacpan.org/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.26.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.26.tar.gz
 Summary  : 'Execute code after a scope finished compilation'
